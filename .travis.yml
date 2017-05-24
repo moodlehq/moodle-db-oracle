@@ -1,0 +1,4 @@
+language: bash
+services: docker
+script:
+    - docker build -t moodle-db-oracle .
