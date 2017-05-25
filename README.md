@@ -9,7 +9,7 @@ An Oracle XE instance configured for Moodle development based on [wnameless/dock
 docker run --name db0 -p 1521:1521 danpoltawski/moodle-db-oracle
 ```
 
-## Features:
+# Features:
 * Oracle XE setup and preconfigured with user and moodlelib package installed (ready for Moodle install)
 * Backed by [automated tests](https://travis-ci.org/danpoltawski/moodle-db-oracle)
 
