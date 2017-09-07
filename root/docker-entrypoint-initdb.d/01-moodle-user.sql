@@ -8,7 +8,6 @@ GRANT CONNECT,RESOURCE,DBA TO moodle;
 GRANT CREATE SESSION TO moodle WITH ADMIN OPTION;
 GRANT UNLIMITED TABLESPACE TO moodle;
 GRANT EXECUTE ON DBMS_LOCK to moodle;
-GRANT EXECUTE ON moodlelib to moodle;
 
 -- Why must I do this oracle?
 ALTER SYSTEM SET processes=200 scope=spfile;
