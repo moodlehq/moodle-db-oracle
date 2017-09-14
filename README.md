@@ -15,6 +15,6 @@ docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle
 
 # See also
 This container is part of a set of containers for Moodle development, see also:
-* [docker-moodle](https://github.com/moodlehq/docker-moodle) a docker-composer based set of tools to get Moodle development running with zero configuration
+* [moodle-docker](https://github.com/moodlehq/moodle-docker) a docker-composer based set of tools to get Moodle development running with zero configuration
 * [moodle-php-apache](https://github.com/moodlehq/moodle-php-apache) PHP and Apache configured for Moodle development
 * [moodle-db-mssql](https://github.com/moodlehq/moodle-db-mssql) Microsoft SQL Server for Linux configured for Moodle development
