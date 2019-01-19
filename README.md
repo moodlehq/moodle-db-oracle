@@ -10,8 +10,8 @@ docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle
 ```
 
 # Features:
-* Oracle XE setup and preconfigured with user and moodlelib package installed (ready for Moodle install)
-* Backed by [automated tests](https://travis-ci.org/moodlehq/moodle-db-oracle)
+* Oracle XE setup and preconfigured with user and moodlelib package installed (ready for Moodle install).
+* Backed by [automated tests](https://travis-ci.org/moodlehq/moodle-db-oracle).
 
 # See also
 This container is part of a set of containers for Moodle development, see also:
