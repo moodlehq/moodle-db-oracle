@@ -8,7 +8,6 @@ An Oracle XE instance configured for Moodle development based on [wnameless/dock
 ```bash
 docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle
 ```
-
 # Bulding locally
 
 Since this image can't be pulled from Docker repo at the moment
@@ -16,8 +15,6 @@ Since this image can't be pulled from Docker repo at the moment
 to build it for local usage:
 
 ```bash
-> git clone git@github.com:wnameless/docker-oracle-xe-11g.git
-> docker build ./docker-oracle-xe-11g --tag wnameless/oracle-xe-11g
 > git clone git@github.com:moodlehq/moodle-db-oracle.git
 > docker build ./moodle-db-oracle --tag moodlehq/moodle-db-oracle
 ```
