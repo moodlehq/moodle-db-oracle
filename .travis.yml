@@ -1,9 +1,9 @@
 language: bash
 services: docker
 install:
-    - docker build -t moodle-db-oracle .
+    - docker build -t moodle-db-oracle-r2 .
 script:
-    - docker run --name test0 -p 1521:1521 -d moodle-db-oracle
+    - docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2
     - until docker logs test0 | grep -q 'Database opened.'; do echo 'Waiting for oracle to come up...' && sleep 15; done
     # Extremely nasty command to get the oracle version..
     # We have to work around the lack of piping/env variables..
