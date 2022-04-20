@@ -13,11 +13,11 @@ docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2
 If there is any future problem with this public image (like it happened before, see [MDLSITE-5669](https://tracker.moodle.org/browse/MDLSITE-5669)), or if you want to build the image locally for any further improvement, you can use:
 
 ```bash
-> git clone git@github.com:moodlehq/moodle-db-oracle.git
-> docker build ./moodle-db-oracle --tag moodlehq/moodle-db-oracle-r2
+> git clone https://github.com/moodlehq/moodle-db-oracle.git
+> cd moodle-db-oracle
+> docker build . --tag moodlehq/moodle-db-oracle-r2
 ```
-This will create local image `moodlehq/moodle-db-oracle-r2` which is then can be
-used in `docker run` command or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
+This will create the local image `moodlehq/moodle-db-oracle-r2` which then can be used in `docker run` commands or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
 
 # Features:
 * Oracle XE setup and preconfigured with user and moodlelib package installed (ready for Moodle install).
