@@ -1,9 +1,9 @@
 language: bash
 services: docker
 install:
-  - docker build -t moodle-db-oracle-r2:21c .
+  - docker build -t moodle-db-oracle-r2:21 .
 script:
-  - docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2:21c
+  - docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2:21
   - until docker logs test0 | grep -q 'DATABASE IS READY TO USE!'; do echo 'Waiting for oracle to come up...' && sleep 15; done
   # Perfome some simple verifications:
   # - XE CDB exists.
