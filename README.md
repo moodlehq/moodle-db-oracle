@@ -1,12 +1,12 @@
 # moodle-db-oracle: Oracle XE for Moodle
-[![Build Status](https://travis-ci.com/moodlehq/moodle-db-oracle.svg?branch=master)](https://travis-ci.com/moodlehq/moodle-db-oracle)
+[![Build Status](https://travis-ci.com/moodlehq/moodle-db-oracle.svg?branch=21c)](https://travis-ci.com/moodlehq/moodle-db-oracle)
 
 An Oracle XE instance configured for Moodle development based on [gvenzl/oracle-xe](https://github.com/gvenzl/oci-oracle-xe)
 
 # Example usage
 
 ```bash
-docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2:21c
+docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2:21
 ```
 # Building locally
 
