@@ -1,26 +1,27 @@
 # moodle-db-oracle: Oracle XE for Moodle
 [![Build Status](https://travis-ci.com/moodlehq/moodle-db-oracle.svg?branch=master)](https://travis-ci.com/moodlehq/moodle-db-oracle)
 
-An Oracle XE instance configured for Moodle development based on [wnameless/docker-oracle-xe-11g](https://github.com/wnameless/docker-oracle-xe-11g)
+An Oracle XE instance configured for Moodle development based on [gvenzl/oracle-xe](https://github.com/gvenzl/oci-oracle-xe)
 
 # Example usage
 
 ```bash
-docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2
+docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2:21c
 ```
-# Bulding locally
+# Building locally
 
 If there is any future problem with this public image (like it happened before, see [MDLSITE-5669](https://tracker.moodle.org/browse/MDLSITE-5669)), or if you want to build the image locally for any further improvement, you can use:
 
 ```bash
 > git clone https://github.com/moodlehq/moodle-db-oracle.git
+> git checkout 21c
 > cd moodle-db-oracle
 > docker build . --tag moodlehq/moodle-db-oracle-r2
 ```
 This will create the local image `moodlehq/moodle-db-oracle-r2` which then can be used in `docker run` commands or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
 
 # Features:
-* Oracle XE setup and preconfigured with user and moodlelib package installed (ready for Moodle install).
+* Oracle XE setup and preconfigured with empty database (MDB), user (moodle) and moodlelib package installed (ready for Moodle install).
 * Backed by [automated tests](https://travis-ci.com/moodlehq/moodle-db-oracle).
 
 # See also

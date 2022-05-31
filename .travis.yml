@@ -1,18 +1,21 @@
 language: bash
 services: docker
 install:
-    - docker build -t moodle-db-oracle-r2 .
+  - docker build -t moodle-db-oracle-r2:21c .
 script:
-    - docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2
-    - until docker logs test0 | grep -q 'Database opened.'; do echo 'Waiting for oracle to come up...' && sleep 15; done
-    # Extremely nasty command to get the oracle version..
-    # We have to work around the lack of piping/env variables..
-    - >
-        docker exec test0 bash -c "export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe;
-        echo 'SELECT * FROM v\$version;' | /u01/app/oracle/product/11.2.0/xe/bin/sqlplus -S system/oracle@XE"
-        | tee output.txt | grep CORE
+  - docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2:21c
+  - until docker logs test0 | grep -q 'DATABASE IS READY TO USE!'; do echo 'Waiting for oracle to come up...' && sleep 15; done
+  # Perfome some simple verifications:
+  # - XE CDB exists.
+  # - MDB PDB exists.
+  - >
+      docker exec test0 /bin/bash -c "echo 'SELECT INSTANCE_NAME, VERSION  FROM V\$INSTANCE;' | sqlplus -s / as sysdba" |
+      tee output.txt | grep XE
+  - >
+      docker exec test0 /bin/bash -c "echo 'SHOW PDBS;' | sqlplus -s / as sysdba" |
+      tee output.txt | grep MDB
 after_failure:
-    - cat output.txt
-    - docker logs test0
+  - cat output.txt
+  - docker logs test0
 after_script:
-    - docker rm -f test0
+  - docker rm -f test0
