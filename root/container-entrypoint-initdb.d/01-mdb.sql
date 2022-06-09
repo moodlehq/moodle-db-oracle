@@ -47,15 +47,15 @@ STARTUP;
 -- System settings.
 
 -- Disabled for now, some bug makes mdb files to be lost if we restart the CBD.
---ALTER SESSION SET CONTAINER = CDB$ROOT;
+ALTER SESSION SET CONTAINER = CDB$ROOT;
 
 -- Disable ASYNC IO unconditionally. Really makes a difference.
---ALTER SYSTEM SET FILESYSTEMIO_OPTIONS = DIRECTIO SCOPE = SPFILE;
---ALTER SYSTEM SET disk_asynch_io = FALSE SCOPE = SPFILE;
+ALTER SYSTEM SET FILESYSTEMIO_OPTIONS = DIRECTIO SCOPE = SPFILE;
+ALTER SYSTEM SET disk_asynch_io = FALSE SCOPE = SPFILE;
 
 -- Set 256MB INMEMORY (don't seem to help at all)
---ALTER SYSTEM SET INMEMORY_SIZE = 256M SCOPE = SPFILE;
+ALTER SYSTEM SET INMEMORY_SIZE = 256M SCOPE = SPFILE;
 
 -- Everything setup, shutdown and restart the container database (will also start and open the pluggable database).
---SHUTDOWN IMMEDIATE;
---STARTUP;
+SHUTDOWN IMMEDIATE;
+STARTUP;
