@@ -7,13 +7,9 @@ script:
   - until docker logs test0 | grep -q 'DATABASE IS READY TO USE!'; do echo 'Waiting for oracle to come up...' && sleep 15; done
   # Perfome some simple verifications:
   # - XE CDB exists.
-  # - MDB PDB exists.
   - >
       docker exec test0 /bin/bash -c "echo 'SELECT INSTANCE_NAME, VERSION  FROM V\$INSTANCE;' | sqlplus -s / as sysdba" |
-      tee output.txt | grep XE
-  - >
-      docker exec test0 /bin/bash -c "echo 'SHOW PDBS;' | sqlplus -s / as sysdba" |
-      tee output.txt | grep MDB
+      tee output.txt | grep XE | grep ' 21.'
 after_failure:
   - cat output.txt
   - docker logs test0
