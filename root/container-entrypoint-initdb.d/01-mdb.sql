@@ -22,10 +22,11 @@ DROP PLUGGABLE DATABASE PDB$SEED INCLUDING DATAFILES;
 
 -- Disable ASYNC IO unconditionally. Really makes a difference.
 ALTER SYSTEM SET FILESYSTEMIO_OPTIONS = DIRECTIO SCOPE = SPFILE;
-ALTER SYSTEM SET disk_asynch_io = FALSE SCOPE = SPFILE;
+ALTER SYSTEM SET DISK_ASYNCH_IO = FALSE SCOPE = SPFILE;
 
 -- Set 256MB INMEMORY (don't seem to help at all)
-ALTER SYSTEM SET INMEMORY_SIZE = 256M SCOPE = SPFILE;
+-- Disabled, unexpected problems with sequences and all sort of things.
+-- ALTER SYSTEM SET INMEMORY_SIZE = 256M SCOPE = SPFILE;
 
 -- Everything setup, shutdown and restart the container database (will also start and open the pluggable database).
 SHUTDOWN IMMEDIATE;
