@@ -16,3 +16,6 @@ ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/XE/system.dbf' AUTOEXTEND ON MA
 -- Restart for the process change above to take effect.
 SHUTDOWN IMMEDIATE;
 STARTUP;
+
+-- To help detect when we are done in a 11/21 compatible way
+PROMPT DATABASE IS READY TO USE!
