@@ -12,8 +12,8 @@ docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2:TAG
 ```
 Where `:TAG` can be:
 
-- `:latest`, `:11` (or none): Oracle 11g (XE database) will be used.
-- `:21`: Oracle 21c (MDB database) will be used.
+- `:latest`, `:21` (or none) : Oracle 21c (MDB database) will be used.
+- `:11` : Oracle 11g (XE database) will be used.
 
 In both cases, the DB user (`moodle`) and password (`m@0dl3ing`) are fixed.
 
@@ -25,7 +25,7 @@ If there is any future problem with this public image (like it happened before, 
 > git clone https://github.com/moodlehq/moodle-db-oracle.git
 > git checkout [11g|21c]
 > cd moodle-db-oracle
-> docker build . --tag moodlehq/moodle-db-oracle-r2
+> docker build . --tag moodlehq/moodle-db-oracle-r2:[11g|21c]
 ```
 This will create the local image `moodlehq/moodle-db-oracle-r2` which then can be used in `docker run` commands or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
 

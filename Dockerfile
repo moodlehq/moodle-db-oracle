@@ -1,5 +1,3 @@
-FROM wnameless/oracle-xe-11g-r2:latest
-ENV ORACLE_ALLOW_REMOTE true
-ENV ORACLE_DISABLE_ASYNCH_IO=true
-
-ADD root /
+FROM gvenzl/oracle-xe:21-slim
+ENV ORACLE_PASSWORD=oracle
+COPY --chown=oracle:dba root /
