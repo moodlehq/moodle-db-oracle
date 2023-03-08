@@ -11,11 +11,11 @@ jobs:
 
       - name: Build image
         run: |
-          docker build -t moodle-db-oracle-r2:latest .
+          docker build -t moodle-db-oracle-r2 .
 
       - name: Start container
         run: |
-          docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2:latest
+          docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2
           until docker logs test0 | grep -q 'DATABASE IS READY TO USE!'; do
             echo 'Waiting for oracle to come up...' && sleep 15;
           done
