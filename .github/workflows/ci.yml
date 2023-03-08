@@ -1,0 +1,34 @@
+name: Moodle Oracle Docker CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  Test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build image
+        run: |
+          docker build -t moodle-db-oracle-r2 .
+
+      - name: Start container
+        run: |
+          docker run --name test0 -p 1521:1521 -d moodle-db-oracle-r2
+          until docker logs test0 | grep -q 'DATABASE IS READY TO USE!'; do
+            echo 'Waiting for oracle to come up...' && sleep 15;
+          done
+
+      - name: Run tests
+        run: |
+          # Verify that the XE CDB database exist and it's a 21 instance.
+          docker exec test0 /bin/bash -c "echo 'SELECT INSTANCE_NAME, VERSION  FROM V\$INSTANCE;' | \
+            sqlplus -s / as sysdba" | \
+            tee output.txt | grep XE | grep ' 21.'
+
+      - name: Output logs
+        if: ${{ failure() }}
+        run: |
+          cat output.txt
+          docker logs test0

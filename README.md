@@ -1,5 +1,5 @@
 # moodle-db-oracle: Oracle XE for Moodle
-[![Build Status](https://travis-ci.com/moodlehq/moodle-db-oracle.svg?branch=21c)](https://travis-ci.com/moodlehq/moodle-db-oracle)
+[![Build Status](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml/badge.svg?branch=21c)](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml)
 
 An Oracle XE instance configured for Moodle development based on [gvenzl/oracle-xe](https://github.com/gvenzl/oci-oracle-xe)
 
