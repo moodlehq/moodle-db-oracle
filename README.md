@@ -21,8 +21,9 @@ If there is any future problem with this public image (like it happened before, 
 This will create the local image `moodlehq/moodle-db-oracle-r2` which then can be used in `docker run` commands or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
 
 # Features:
-* Oracle XE setup and preconfigured with empty database (MDB), user (moodle) and moodlelib package installed (ready for Moodle install).
-* Backed by [automated tests](https://travis-ci.com/moodlehq/moodle-db-oracle).
+* Oracle CDB database setup and preconfigured with empty database (XE), user (moodle) and moodlelib package installed (ready for Moodle install).
+* Oracle PDB database setup and preconfigured with empty database (XEPDB1), user (moodle) and moodlelib package installed (ready for Moodle install).
+* Backed by [automated tests](https://github.com/moodlehq/moodle-db-oracle/actions?query=branch%3A21c).
 
 # See also
 This container is part of a set of containers for Moodle development, see also:
