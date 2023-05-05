@@ -8,7 +8,7 @@ ALTER SYSTEM SET FILESYSTEMIO_OPTIONS = DIRECTIO SCOPE = SPFILE;
 ALTER SYSTEM SET DISK_ASYNCH_IO = FALSE SCOPE = SPFILE;
 
 -- Starting with Oracle 12c, the images come with pluggable
--- databases support and with XEPDB1 created. We are going to
+-- databases support and with FREEPDB1 created. We are going to
 -- support both XE (the container, root one) and the pluggable one.
 -- Main advantage of the pluggable is that dictionary / metadata
 -- access is much, much quicker.
@@ -22,8 +22,8 @@ GRANT CREATE SESSION TO moodle WITH ADMIN OPTION;
 GRANT UNLIMITED TABLESPACE TO moodle;
 GRANT EXECUTE ON DBMS_LOCK to moodle;
 
--- Prepare everything also in the pluggable (XEPDB1) database.
-ALTER SESSION SET CONTAINER=XEPDB1;
+-- Prepare everything also in the pluggable (FREEPDB1) database.
+ALTER SESSION SET CONTAINER=FREEPDB1;
 
 ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
 -- Not needed, the user has been created in the CDB and all PDBs

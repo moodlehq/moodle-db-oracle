@@ -1,12 +1,12 @@
-# moodle-db-oracle: Oracle XE for Moodle
-[![Build Status](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml/badge.svg?branch=21c)](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml)
+# moodle-db-oracle: Oracle XE/Free for Moodle
+[![Build Status](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml/badge.svg?branch=23c)](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml)
 
-An Oracle XE instance configured for Moodle development based on [gvenzl/oracle-xe](https://github.com/gvenzl/oci-oracle-xe)
+An Oracle Free instance configured for Moodle development based on [gvenzl/oci-oracle-free](https://github.com/gvenzl/oci-oracle-free)
 
 # Example usage
 
 ```bash
-docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2:21
+docker run --name db0 -p 1521:1521 moodlehq/moodle-db-oracle-r2:23
 ```
 # Building locally
 
@@ -14,15 +14,15 @@ If there is any future problem with this public image (like it happened before, 
 
 ```bash
 > git clone https://github.com/moodlehq/moodle-db-oracle.git
-> git checkout 21c
+> git checkout 23c
 > cd moodle-db-oracle
 > docker build . --tag moodlehq/moodle-db-oracle-r2
 ```
 This will create the local image `moodlehq/moodle-db-oracle-r2` which then can be used in `docker run` commands or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
 
 # Features:
-* Oracle CDB database setup and preconfigured with empty database (XE), user (moodle) and moodlelib package installed (ready for Moodle install).
-* Oracle PDB database setup and preconfigured with empty database (XEPDB1), user (moodle) and moodlelib package installed (ready for Moodle install).
+* Oracle CDB database setup and preconfigured with empty database (FREE), user (moodle) and moodlelib package installed (ready for Moodle install).
+* Oracle PDB database setup and preconfigured with empty database (FREEPDB1), user (moodle) and moodlelib package installed (ready for Moodle install).
 * Backed by [automated tests](https://github.com/moodlehq/moodle-db-oracle/actions?query=branch%3A21c).
 
 # See also
