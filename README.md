@@ -1,7 +1,7 @@
-# moodle-db-oracle: Oracle XE for Moodle
+# moodle-db-oracle: Oracle XE/Free for Moodle
 [![Build Status](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml)
 
-An Oracle XE instance configured for Moodle development based on [wnameless/docker-oracle-xe-11g](https://github.com/wnameless/docker-oracle-xe-11g) (Oracle 11g) and [gvenzl/oracle-xe](https://github.com/gvenzl/oci-oracle-xe) (Oracle 21c)
+An Oracle XE/Free instance configured for Moodle development based on [wnameless/docker-oracle-xe-11g](https://github.com/wnameless/docker-oracle-xe-11g) (Oracle 11g), [gvenzl/oci-oracle-xe](https://github.com/gvenzl/oci-oracle-xe) (Oracle 21c) and [gvenzl/oci-oracle-free](https://github.com/gvenzl/oci-oracle-free) (Oracle 23c).
 
 # Example usage
 
@@ -14,8 +14,9 @@ Where `:TAG` can be:
 
 - `:latest`, `:21` (or none) : Oracle 21c (XE or XEPDB1 databases) will be used.
 - `:11` : Oracle 11g (XE database) will be used.
+- `:23` : Oracle 23c (FREE or FREEPDB1 databases) will be used.
 
-In both cases, the DB user (`moodle`) and password (`m@0dl3ing`) are fixed.
+In all cases, the DB user (`moodle`) and password (`m@0dl3ing`) are fixed.
 
 # Building locally
 
@@ -23,15 +24,15 @@ If there is any future problem with this public image (like it happened before, 
 
 ```bash
 > git clone https://github.com/moodlehq/moodle-db-oracle.git
-> git checkout [11g|21c|master]
+> git checkout [11g|21c|23c|master]
 > cd moodle-db-oracle
-> docker build . --tag moodlehq/moodle-db-oracle-r2:[11g|21c|latest]
+> docker build . --tag moodlehq/moodle-db-oracle-r2:[11|21|23|latest]
 ```
 This will create the local image `moodlehq/moodle-db-oracle-r2` which then can be used in `docker run` commands or by [moodle-docker](https://github.com/moodlehq/moodle-docker) testing tools.
 
 # Features:
-* Oracle CDB database setup and preconfigured with empty database (XE), user (moodle) and moodlelib package installed (ready for Moodle install).
-* Only 21c and up: Oracle PDB database setup and preconfigured with empty database (XEPDB1), user (moodle) and moodlelib package installed (ready for Moodle install).
+* Oracle CDB database setup and preconfigured with empty database (XE or FREE), user (moodle) and moodlelib package installed (ready for Moodle install).
+* Only 21c and up: Oracle PDB database setup and preconfigured with empty database (XEPDB1 or FREEPDB1), user (moodle) and moodlelib package installed (ready for Moodle install).
 * Backed by [automated tests](https://github.com/moodlehq/moodle-db-oracle/actions?query=branch%3Amaster).
 
 # See also
