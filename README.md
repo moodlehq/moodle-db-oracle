@@ -1,5 +1,5 @@
 # moodle-db-oracle: Oracle XE/Free for Moodle
-[![Build Status](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml)
+[![Build Status](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/moodlehq/moodle-db-oracle/actions/workflows/ci.yml)
 
 An Oracle XE/Free instance configured for Moodle development based on [wnameless/docker-oracle-xe-11g](https://github.com/wnameless/docker-oracle-xe-11g) (Oracle 11g), [gvenzl/oci-oracle-xe](https://github.com/gvenzl/oci-oracle-xe) (Oracle 21c) and [gvenzl/oci-oracle-free](https://github.com/gvenzl/oci-oracle-free) (Oracle 23c).
 
@@ -24,7 +24,7 @@ If there is any future problem with this public image (like it happened before, 
 
 ```bash
 > git clone https://github.com/moodlehq/moodle-db-oracle.git
-> git checkout [11g|21c|23c|master]
+> git checkout [11g|21c|23c|main]
 > cd moodle-db-oracle
 > docker build . --tag moodlehq/moodle-db-oracle-r2:[11|21|23|latest]
 ```
@@ -33,7 +33,7 @@ This will create the local image `moodlehq/moodle-db-oracle-r2` which then can b
 # Features:
 * Oracle CDB database setup and preconfigured with empty database (XE or FREE), user (moodle) and moodlelib package installed (ready for Moodle install).
 * Only 21c and up: Oracle PDB database setup and preconfigured with empty database (XEPDB1 or FREEPDB1), user (moodle) and moodlelib package installed (ready for Moodle install).
-* Backed by [automated tests](https://github.com/moodlehq/moodle-db-oracle/actions?query=branch%3Amaster).
+* Backed by [automated tests](https://github.com/moodlehq/moodle-db-oracle/actions?query=branch%3Amain).
 
 # See also
 This container is part of a set of containers for Moodle development, see also:
